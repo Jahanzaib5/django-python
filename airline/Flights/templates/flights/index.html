@@ -8,7 +8,7 @@
 	<ul>
 		{% for i in flights %}
 			<li>
-				{{i}}
+				<a href="{% url 'flight' i.id%}">{{i}}</a>
 			</li>
 		{% endfor %}
 	</ul>
