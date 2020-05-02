@@ -5,14 +5,14 @@ class Airports(models.Model):
 	code = models.CharField(max_length=3)
 	city = models.CharField(max_length=64)
 
-	def _str_(self):
-		return f"{self.code}--{self.city}"
+	def __str__(self):
+		return f"{self.city} ({self.code})"
 
 
 
 class Flights(models.Model):
-	origin = models.CharField(max_length=64)
-	destination = models.CharField(max_length=64)
+	origin = models.ForeignKey(Airports, on_delete=models.CASCADE, related_name="departures")
+	destination = models.ForeignKey(Airports, on_delete=models.CASCADE, related_name='arrivals')
 	duration = models.IntegerField()
 
 	def __str__(self):
