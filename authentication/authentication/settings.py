@@ -71,14 +71,20 @@ TEMPLATES = [
 WSGI_APPLICATION = 'authentication.wsgi.application'
 
 
+CRISPY_TEMPLATE_PACK="bootstrap4"
+
 # Database
 # https://docs.djangoproject.com/en/2.0/ref/settings/#databases
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    }
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'd92pfdtb7oefek',
+        'USER': 'vfooqegoqbccjs',
+        'PASSWORD': 'e04d0b9e1addba9715696c93cbfbe566bd3f56fd36fa2b72bf7a9e6272ea876b',
+        'HOST': 'ec2-3-223-21-106.compute-1.amazonaws.com',
+        'PORT': '5432'
+            }
 }
 
 
