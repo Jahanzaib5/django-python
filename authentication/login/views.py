@@ -26,10 +26,14 @@ def login_view(request):
   else:
       return render(request, "users/login.html", {"message": "Invalid credentials."})
 
+def check(request):
+	if not request.user.is_authenticated:
+		return render(request, "users/login.html", {"message": None})
+	context = {
+		"user": request.user
+	}
+	return render(request, "users/check.html", context)
 
-def register_user(request):
-	form = RegisterForm()
-	return render(request, "users/register.html", {"form": form})
 
 def register(request):
 	if request.method == "POST":
